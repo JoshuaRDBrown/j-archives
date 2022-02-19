@@ -1,13 +1,19 @@
 import React from 'react';
 import './App.scss';
 import NavBar from './Components/NavBar/NavBar';
+import { FirebaseService } from './Services/FirebaseService';
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
+
+  if(FirebaseService.instance.firebaseUserObject()) {
+    return(
       <NavBar/>
-    </div>
-  );
+    )
+  }
+
+  return(
+    <div>login</div>
+  )
 }
 
 export default App;
